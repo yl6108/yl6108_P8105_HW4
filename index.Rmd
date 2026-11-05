@@ -1,0 +1,16 @@
+---
+title: "yl6108_P8105"
+output: html_document
+---
+
+Hello!
+
+I am Eric, a MPH student at Columbia University.
+
+Explore My Website
+
+- [Academic Background and Experience](resume.html)
+- [Interactive NY NOAA Weather Dashboard](flexdashboard.html)
+- [My GitHub Profile](https://github.com/yl6108)
+
+Thank you!
