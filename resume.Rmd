@@ -1,0 +1,26 @@
+---
+title: "resume"
+output: html_document
+---
+
+## Education
+
+**Columbia University Mailman School of Public Health** 
+
+Master of Public Health (MPH), Biostatistics
+## Technical Skills
+
+- **Programming:** R, SAS
+- **Data Analysis:** Data cleaning, descriptive statistics, hypothesis testing, and regression
+
+## Academic Projects
+
+**NY NOAA Weather Dashboard**
+
+- Used NOAA weather observations to explore daily temperatures and precipitation.
+- Created interactive scatter, box, and bar plots.
+
+## Contact
+
+- **Email:** [yl6108@columbia.edu](mailto:yl6108@columbia.edu)
+- **GitHub:** [github.com/yl6108](https://github.com/yl6108)

@@ -1,0 +1,81 @@
+---
+title: "flexdashboard"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+
+data("ny_noaa")
+
+weather_data =
+  ny_noaa |>
+  filter(id == "USW00094728") |>
+  mutate(
+    year = as.integer(format(date, "%Y")),
+    month = factor(month.abb[as.integer(format(date, "%m"))],
+                   levels = month.abb),
+    tmax = as.numeric(tmax) / 10,
+    tmin = as.numeric(tmin) / 10,
+    prcp = as.numeric(prcp) / 10
+  ) |>
+  filter(year >= 2006, year <= 2010)
+```
+
+
+```{r scatter-plot}
+weather_data |>
+  filter(!is.na(tmax), !is.na(tmin)) |>
+  plot_ly(
+    x = ~tmin,
+    y = ~tmax,
+    type = "scatter",
+    mode = "markers",
+    color = ~prcp,
+    alpha = 0.6
+  ) |>
+  layout(
+    xaxis = list(title = "Minimum Temperature (°C)"),
+    yaxis = list(title = "Maximum Temperature (°C)")
+  )
+```
+
+
+```{r box-plot}
+weather_data |>
+  filter(!is.na(tmax)) |>
+  plot_ly(
+    y = ~tmax,
+    color = ~month,
+    type = "box"
+  ) |>
+  layout(
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Maximum Temperature (°C)")
+  )
+```
+
+
+```{r bar-plot}
+weather_data |>
+  filter(prcp > 0) |>
+  count(month) |>
+  plot_ly(
+    x = ~month,
+    y = ~n,
+    type = "bar"
+  ) |>
+  layout(
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Rainy Days (2006–2010 Total)")
+  )
+```
+
+
+
+
+
+
